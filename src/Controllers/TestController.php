@@ -8,6 +8,12 @@
 
 	class TestController extends BaseController {
 
+		public function ApiRunning($request, $response, $args) {
+		    $response->getBody()->write("API IS WORKING");
+		    
+		    return $response;
+		}
+
 		public function SimpleResponse($request, $response, $args) {
 			$response = $this->testRepository->SimpleResponse($request, $response, $args);
 

@@ -4,11 +4,11 @@
 
 	$container->set("db_instance", function(ContainerInterface $container) {
 		$config 	= $container->get('db_settings');
-		$host 		= $config->db_host;
-		$database 	= $config->db_name;
-		$user 		= $config->db_user;
-		$password 	= $config->db_password;
-		$charset 	= $config->db_char;
+		$host 		= $config->dbHost;
+		$database 	= $config->dbName;
+		$user 		= $config->dbUser;
+		$password 	= $config->dbPassword;
+		$charset 	= $config->dbChar;
 
 		$options 	= [
 			PDO::ATTR_ERRMODE 				=> PDO::ERRMODE_EXCEPTION,

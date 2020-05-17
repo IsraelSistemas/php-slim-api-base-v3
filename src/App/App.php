@@ -1,13 +1,14 @@
 <?php
 
-	use Psr\Http\Message\ResponseInterface as Response;
-	use Psr\Http\Message\ServerRequestInterface as Request;
 	use Slim\Factory\AppFactory;
 
 	require __DIR__ . "/../../vendor/autoload.php";
 
 	// containers slim app
-	$auxContainer = new \DI\Container();
+	$auxContainer 	= new \DI\Container();
+	$settings 		= require __DIR__ ."/../Config/Settings.php";
+	
+	$settings($auxContainer);
 	AppFactory::setContainer($auxContainer);
 
 	// create slim app
@@ -17,12 +18,13 @@
 	$container = $app->getContainer();
 
 	// adding middlewares on app
+	$app->addErrorMiddleware(
+		$container->get("settings")->displayErrorDetails, 
+		$container->get("settings")->logErrors, 
+		$container->get("settings")->logErrorDetails
+	);
 	// $app->add(new TestBeforeMiddleware());
 
-	$app->get("/", function (Request $request, Response $response, $args) {
-	    $response->getBody()->write("API IS WORKING");
-	    return $response;
-	});
 
 	require __DIR__ . "/../Routes/Routes.php";
 	require __DIR__ . "/../Config/Settings.php";

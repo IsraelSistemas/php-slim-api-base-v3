@@ -1,11 +1,26 @@
 <?php 
 
-	$container->set("db_settings", function() {
-		return (object) [
-			"db_host" 		=> "localhost",
-			"db_name" 		=> "dbname",
-			"db_user" 		=> "user",
-			"db_password" 	=> "password",
-			"db_char" 		=> "utf8"
-		];
-	});
+	use \DI\Container;
+
+	return function(Container $container) {
+
+		$container->set("settings", function() {
+			return (object) [
+				"nameApplication"		=> "slim 4 API rest template", 
+				"displayErrorDetails" 	=> true,
+	 			"logErrors"				=> true,
+	 			"logErrorDetails"		=> true
+			];
+		});
+
+		$container->set("db_settings", function() {
+			return (object) [
+				"dbHost" 		=> "localhost",
+				"dbName" 		=> "compra_venta",
+				"dbUser" 		=> "root",
+				"dbPassword" 	=> "",
+				"dbChar" 		=> "utf8"
+			];
+		});
+
+	};
