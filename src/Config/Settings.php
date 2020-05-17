@@ -16,9 +16,9 @@
 		$container->set("db_settings", function() {
 			return (object) [
 				"dbHost" 		=> "localhost",
-				"dbName" 		=> "compra_venta",
-				"dbUser" 		=> "root",
-				"dbPassword" 	=> "",
+				"dbName" 		=> "dbname",
+				"dbUser" 		=> "user",
+				"dbPassword" 	=> "password",
 				"dbChar" 		=> "utf8"
 			];
 		});
