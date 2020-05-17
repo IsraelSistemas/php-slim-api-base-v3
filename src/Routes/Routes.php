@@ -6,6 +6,8 @@
 
 	$app->group("/api", function(RouteCollectorProxy $routeCollectorProxy) {
 
-		$routeCollectorProxy->get("/test", "App\Controllers\TestController:Test");
+		$routeCollectorProxy->get("/SimpleResponse", "App\Controllers\TestController:SimpleResponse");
+
+		$routeCollectorProxy->get("/SimpleDBResponse", "App\Controllers\TestController:SimpleDBResponse");
 
 	});
