@@ -28,9 +28,10 @@ Clone the project from github. Change "myproject" to your project name.
 git clone https://github.com/IsraelSistemas/php-slim-api-base-v3.git myproject
 ```
 
-### Run
+### How to Run
 ```
-1 - php -S localhost:8888
+1 - Open the project in a terminal
+2 - Type the command "php -S localhost:8888" or "composer dev" and press enter
 ```
 
 License ISC
