@@ -2,12 +2,19 @@
 
 	namespace App\Repositories;
 
+	use App\Helpers\Helpers;
 	use App\Interfaces\TestInterface;
 
-	class TestRepository implements TestInterface {
+	class TestRepository extends Helpers implements TestInterface {
 
 		public function __construct() {
 			
+		}
+
+		public function GenerateToken($request, $response, $args, $container) {
+			$response->getBody()->write($this->GenerateAccessToken($container));
+		    
+		    return $response;
 		}
 
 		public function SimpleResponse($request, $response, $args) {
@@ -24,7 +31,7 @@
 		}
 
 		public function SimpleDBResponse($request, $response, $args, $container) {
-			$pdo = $container->get('db_instance');
+			$pdo = $container->get("db_instance");
 	
 			$query = $pdo->query("
 				SELECT 

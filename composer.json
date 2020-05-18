@@ -16,7 +16,7 @@
         "laminas/laminas-diactoros": "^2.3",
         "php-di/php-di": "^6.1",
         "monolog/monolog": "^1.23",
-        "firebase/php-jwt": "^5.0"
+        "firebase/php-jwt": "^5.2"
     },
     "autoload": {
     	"psr-4": {

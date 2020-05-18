@@ -23,4 +23,11 @@
 			];
 		});
 
+		$container->set("app_settings", function() {
+			return (object) [
+				"mailer"		=> "mailer@mail.com",
+				"secretToken"	=> "secretKey"
+			];
+		});
+
 	};

@@ -3,7 +3,7 @@
 	use Psr\Container\ContainerInterface;
 
 	$container->set("db_instance", function(ContainerInterface $container) {
-		$config 	= $container->get('db_settings');
+		$config 	= $container->get("db_settings");
 		$host 		= $config->dbHost;
 		$database 	= $config->dbName;
 		$user 		= $config->dbUser;
